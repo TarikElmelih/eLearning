@@ -319,6 +319,10 @@
   -o-transition: transform 0.3s ease-in-out;
 }
 
+.courses .courses-wrapper .grabbing {
+  cursor: grabbing;
+}
+
 .courses .courses-wrapper .courses-carousel .box {
   flex-shrink: 0;
   width: calc(100% / 5);

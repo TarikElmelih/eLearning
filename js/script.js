@@ -148,7 +148,7 @@ coursesCarousel.addEventListener('mouseleave', mouseLeave);
 coursesCarousel.addEventListener('touchend', mouseUp);
 // end moaz 
 
-=======
+// =======
 window.onload = () => {
     document.onwheel = customScrollFunction;
 

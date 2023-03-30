@@ -39,7 +39,6 @@ showAndHideButton()
 function moveSlider(movedBoxes, status) {
   if (!movedBoxes) {
     if (status == "next" && coursesCounter < coursesCard) {
-      console.log(movedBoxes);
       coursesCounter++;
     } else if (status == "prev" && coursesCounter > 0) {
       console.log(movedBoxes);
@@ -92,7 +91,6 @@ function mouseDown(e, status) {
   } else if(status == "desk") {
     startPosition = e.clientX;
   }
-  console.log(currentTranslate);
   coursesCarousel.classList.add('grabbing');
   // console.log("totsh", e)
 }

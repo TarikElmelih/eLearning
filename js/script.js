@@ -39,10 +39,8 @@ showAndHideButton()
 function moveSlider(movedBoxes, status) {
   if (!movedBoxes) {
     if (status == "next" && coursesCounter < coursesCard) {
-      console.log(movedBoxes);
       coursesCounter++;
     } else if (status == "prev" && coursesCounter > 0) {
-      console.log(movedBoxes);
       coursesCounter--;
     }
   } else if(movedBoxes) {
@@ -50,7 +48,6 @@ function moveSlider(movedBoxes, status) {
       let numberMove = movedBoxes;
       for (let i = 1;i <= numberMove; i++) {
         if (coursesCounter < coursesCard) {
-          console.log(i)
           coursesCounter++
         }
       }
@@ -58,7 +55,6 @@ function moveSlider(movedBoxes, status) {
       let numberMove = -movedBoxes;
       for (let i = 1;i <= numberMove; i++) {
         if (coursesCounter > 0) {
-          console.log(i)
           coursesCounter--
         }
       }
@@ -92,9 +88,7 @@ function mouseDown(e, status) {
   } else if(status == "desk") {
     startPosition = e.clientX;
   }
-  console.log(currentTranslate);
   coursesCarousel.classList.add('grabbing');
-  // console.log("totsh", e)
 }
 
 // mose and touch move
@@ -146,6 +140,18 @@ coursesCarousel.addEventListener('touchmove', e => {
 coursesCarousel.addEventListener('mouseup', mouseUp);
 coursesCarousel.addEventListener('mouseleave', mouseLeave);
 coursesCarousel.addEventListener('touchend', mouseUp);
+
+// move slider in click kebord ArrowRight or ArrowLeft
+document.addEventListener("keyup", e => {
+  if (scrollY >= document.querySelector(".courses").offsetTop - 550) {
+    if (e.code == "ArrowRight") {
+      moveSlider(undefined,"prev")
+    } else if (e.code == "ArrowLeft") {
+      moveSlider(undefined,"next")
+    }
+  } 
+  console.log(` ${e.code}`);
+});
 // end moaz 
 
 // =======

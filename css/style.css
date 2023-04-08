@@ -43,7 +43,7 @@ header .serch .icon-serch .icon {
 
 header .oitems {
   /* flex: 2 0 0%; */
-  width: 60%;
+  width: 61%;
 }
 
 header .oitems nav .oitems-contuinar {
@@ -113,7 +113,8 @@ header .oitems nav .oitems-contuinar .options select {
   outline: none;
 }
 
-header .oitems nav .oitems-contuinar .options .lang {
+header .oitems nav .oitems-contuinar .options .lang 
+{
   margin-right: 30px;
   border: 1px solid #000000;
   padding: 10px 15px;

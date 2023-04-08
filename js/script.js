@@ -1,4 +1,25 @@
+// eman
+let navBarButton = document.querySelector("header .oitems .iconbutton");
+let navBar = document.querySelector("header .oitems .oitems-contuinar");
+let lang = document.querySelector("header .oitems .oitems-contuinar .options .lang");
+let langspan = document.querySelectorAll("header .oitems .oitems-contuinar .options .lang a span");
 
+navBarButton.addEventListener("click", e => {
+  document.querySelector("header .oitems .iconbutton svg.icon").classList.toggle("fa-bars");
+  document.querySelector("header .oitems .iconbutton svg.icon").classList.toggle("fa-xmark");
+  if (document.querySelector("header .oitems .iconbutton svg").classList.contains("fa-xmark") === true) {
+    navBar.classList.toggle("active");
+  } else {
+    navBar.classList.toggle("active");
+  }
+});
+
+lang.addEventListener("click", e => {
+  e.target.parentElement.parentElement.querySelectorAll("a span").forEach(el => {
+    el.classList.toggle("active");
+  });
+});
+// 
 // moaz
 // variables for element slider and width & number
 let coursesCarousel = document.querySelector(".courses .courses-wrapper .courses-carousel")

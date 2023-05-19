@@ -146,7 +146,7 @@ coursesCarousel.addEventListener('mouseleave', mouseLeave);
 coursesCarousel.addEventListener('touchend', mouseUp);
 // end moaz 
 
-// =======
+// Aasem
 window.onload = () => {
     document.onwheel = customScrollFunction;
 
@@ -172,4 +172,72 @@ if(deltaYSign==-1){
 
 }
 }
+// end
+// eman
+let navBarButton = document.querySelector("header .oitems .iconbutton");
+let navBar = document.querySelector("header .oitems .oitems-contuinar");
+let lang = document.querySelector("header .oitems .oitems-contuinar .options .lang");
+let langspan = document.querySelectorAll("header .oitems .oitems-contuinar .options .lang a span");
 
+navBarButton.addEventListener("click", e => {
+  document.querySelector("header .oitems .iconbutton svg.icon").classList.toggle("fa-bars");
+  document.querySelector("header .oitems .iconbutton svg.icon").classList.toggle("fa-xmark");
+  if (document.querySelector("header .oitems .iconbutton svg").classList.contains("fa-xmark") === true) {
+    navBar.classList.toggle("active");
+  } else {
+    navBar.classList.toggle("active");
+  }
+});
+
+lang.addEventListener("click", e => {
+  e.target.parentElement.parentElement.querySelectorAll("a span").forEach(el => {
+    el.classList.toggle("active");
+  });
+});
+// emd
+// mhalhalaf
+var st = false
+let ShowLoginPas = document.querySelector('#showlogin')
+let ClosLoginPas = document.querySelector('#closlogin')
+
+function login() {
+    if (st) {
+        document.querySelector('#password').setAttribute('type', 'password');
+        ShowLoginPas.classList.add('d-none')
+        ClosLoginPas.classList.remove('d-none')
+        st = false
+    } else {
+        document.querySelector('#password').setAttribute('type', 'text');
+        ClosLoginPas.classList.add('d-none')
+        ShowLoginPas.classList.remove('d-none')
+        st = true
+    }
+}
+// end
+// simaa
+const slidePoints = document.querySelectorAll('.slide-point');
+const cards = document.querySelectorAll('.card-content');
+
+cards.forEach((card, index) => {
+  card.addEventListener('click', () => {
+    // remove active class from all cards and slide points
+    cards.forEach(card => {
+      card.classList.remove('active-card');
+    });
+    slidePoints.forEach(slidePoint => {
+      slidePoint.classList.remove('active-slide');
+    });
+
+    // add active class to clicked card and slide point
+    card.classList.add('active-card');
+    slidePoints[index].classList.add('active-slide');
+  });
+});
+
+slidePoints.forEach((point, index) => {
+  point.addEventListener('click', () => {
+    // trigger click event on corresponding card
+    cards[index].click();
+  });
+});
+// end

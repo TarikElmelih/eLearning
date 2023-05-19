@@ -1,0 +1,295 @@
+.proj{
+    background-color:  #E1F2D1;
+}
+.btn1{
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 194.07px;
+    height: 46.41px;
+    left: 1199.38px;
+    top: 40.03px;
+    border: 1.90892px solid #7FB414;
+    border-radius: 57.2677px;
+
+    font-family: 'Balo';
+    font-style: normal;
+    font-weight: 200;
+    font-size: 26.7249px;
+    line-height: 36px;
+
+
+    color: #454545;
+
+}
+.btn1:hover{
+    background-color: #7FB414;
+    color: #E1F2D1;
+}
+.part1 h1{
+font-family: 'Cairo';
+font-style: normal;
+font-weight: 400;
+font-size: 45px;
+line-height: 90px;
+}
+.part1 p{
+
+    position: absolute;
+    width: 734.32px;
+    height: 147px;
+    left: 658px;
+    top: 201.46px;
+    
+    font-family: 'Balo';
+    font-style: normal;
+    font-weight: 200;
+    font-size: 36px;
+    line-height: 49px;
+    text-align: right;
+    color: #454545;
+}
+.drp1{
+    position: absolute;
+width: 473.62px;
+height: 104.84px;
+left: 881px;
+top: 453.03px;
+color: #fff;
+background: #454545;
+border-radius: 25px;
+
+font-family: 'Cairo';
+font-style: normal;
+font-weight: 400;
+font-size: 32px;
+line-height: 60px;
+}
+.drp2{
+    
+position: absolute;
+width: 473.62px;
+height: 104.84px;
+left: 881px;
+top: 587.03px;
+color: #fff;
+background: #454545;
+border-radius: 25px;
+
+
+font-family: 'Cairo';
+font-style: normal;
+font-weight: 400;
+font-size: 32px;
+line-height: 60px;
+}
+.drp3{
+    position: absolute;
+    width: 473.62px;
+    height: 104.84px;
+    left: 881px;
+    top: 729.03px;
+    color: #fff;
+    background: #454545;
+    border-radius: 25px;
+    
+font-family: 'Cairo';
+font-style: normal;
+font-weight: 400;
+font-size: 32px;
+line-height: 60px;
+}
+.img-s{
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 617.96px;
+    height: 579.12px;
+    left: 29.86px;
+    top: 172.72px;
+    
+    background: url(.jpg), #D9D9D9;
+    border: 2.83641px solid #7FB414;
+    box-shadow: 0px 31.8549px 39.8187px rgba(0, 0, 0, 0.25);
+    border-radius: 41.3866px; 
+}
+.btn2{
+    
+box-sizing: border-box;
+
+position: absolute;
+width: 507.85px;
+height: 120.85px;
+left: 465px;
+top: 970.62px;
+
+border: 4px solid #7FB414;
+border-radius: 80px;
+font-family: 'Cairo';
+font-style: normal;
+font-weight: 400;
+font-size: 48px;
+line-height: 90px;
+
+color: #454545;
+}
+.btn2:hover{
+    background-color: #7FB414;
+    color: #E1F2D1;
+}
+.log-s .c1{
+    box-sizing: border-box;
+position: absolute;
+width: 962px;
+height: 92px;
+left: 238px;
+top: 1183.62px;
+background: #F7F7F7;
+border: 1px solid #7FB414;
+border-radius: 100px;
+
+font-family: 'Balo';
+font-style: normal;
+font-weight: 400;
+font-size: 40px;
+line-height: 46px;
+text-align: center;
+color: rgba(69, 69, 69, 0.5);
+}
+.log-s .send{
+    position: absolute;
+    height: 56px;
+    width: 65px;
+    left: 1232px;
+    top: 1200px;
+}
+.comm{
+    display: flex;
+position: absolute;
+width: 932px;
+height: 155px;
+left: 246px;
+top: 1368.63px;
+
+background: #E1F2D1;
+border-radius: 10px;
+overflow: hidden;
+}
+.comm h1{
+
+width: 109px;
+height: 43px;
+left: 899.33px;
+top: 1335.09px;
+
+font-family: 'Cairo';
+font-style: normal;
+font-weight: 500;
+font-size: 23px;
+line-height: 43px;
+text-align: right;
+}
+
+.comm h2{
+ 
+width: 211px;
+height: 41px;
+left: 797.33px;
+top: 1295.09px;
+
+font-family: 'Cairo';
+font-style: normal;
+font-weight: 500;
+font-size: 22.0201px;
+line-height: 41px;
+text-align: right;
+
+}
+.comm .st-3 svg{
+    box-sizing: border-box;
+    width: 100px;
+    height: 100px;
+    left: 1061.6px;
+    top: 1365.13px;
+}
+.comm .st-3 .st-em{
+    margin-right: 53px;
+}
+.comm .st-3{
+    margin-right: 16.4px;
+    margin-top: 23.5px;
+    display: flex;
+
+}
+.comm1{
+    opacity: 0.5;
+position: absolute;
+width: 932px;
+height: 155px;
+left: 246px;
+top: 1565.63px;
+
+background: #E1F2D1;
+border-radius: 10px;
+}
+.comm1 h1{
+
+    width: 109px;
+    height: 43px;
+    left: 899.33px;
+    top: 1194.09px;
+    
+    font-family: 'Cairo';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 23px;
+    line-height: 43px;
+    text-align: right;
+    }
+    
+    .comm1 h2{
+     
+    width: 211px;
+    height: 41px;
+    left: 797.33px;
+    top: 1152.09px;
+    
+    font-family: 'Cairo';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 22.0201px;
+    line-height: 41px;
+    text-align: right;
+    
+    }
+    .comm1 .st-3 svg{
+        box-sizing: border-box;
+        width: 100px;
+        height: 100px;
+        left: 1061.6px;
+        top: 1281.13px;
+    }
+    .comm1 .st-3 .st-em{
+        margin-right: 53px;
+    }
+    .comm1 .st-3{
+        margin-right: 16.4px;
+        margin-top: 23.5px;
+        display: flex;
+    
+    }
+
+@font-face{
+    font-family: Cairo ;
+    src: url(../webfonts/Cairo-VariableFont_slnt\,wght.ttf);
+}
+@font-face{
+    font-family:Balo ;
+    src:url(../webfonts/BalooBhaijaan2-VariableFont_wght.ttf);
+}
+@media  (max-width : 767px) {
+
+}
+@media  (min-width : 768px) {}
+@media (min-width : 992px) {}
+@media (min-width : 1200px) {}

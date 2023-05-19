@@ -89,23 +89,6 @@
   max-width: 80%;
 }
 
-.hero .info-section .image .svg {
-  position: absolute;
-  bottom: -5px;
-}
-.hero .info-section .image .svg:nth-child(2) {
-  left: -15px;
-}
-
-.hero .info-section .image .svg:nth-child(3) {
-  left: 50px;
-}
-
-
-.hero .info-section .image .svg:last-child {
-  right: 5px;
-}
-
 .hero .details {
   position: relative;
   display: flex;
@@ -164,19 +147,7 @@
   .hero .info-section .image .img {
     max-width: 50%;
   }
-  .hero .info-section .image .svg:nth-child(2) {
-    width: 42px;
-    height: 12px;
-    left: 0;
-  }
-  .hero .info-section .image .svg:nth-child(3) {
-    width: 225px;
-    height: 12px;
-    left: 60px;
-  }
-  .hero .info-section .image .svg:last-child {
-    display: none;
-  }
+  
   .hero .info-section .text h2 {
     font-size: 28px;
   }
@@ -208,15 +179,7 @@
   .hero .info-section .image .img {
     max-width: 50%;
   }
-  .hero .info-section .image .svg:nth-child(2) {
-    left: 125px;
-  }
-  .hero .info-section .image .svg:nth-child(3) {
-    left: 200px;
-  }
-  .hero .info-section .image .svg:last-child {
-    display: none;
-  }
+ 
 }
 
 
@@ -227,45 +190,9 @@
   .hero .info-section .image .img {
     max-width: 80%;
   }
-  .hero .info-section .image .svg {
-    bottom: 55px;
-  }
-  .hero .info-section .image .svg:nth-child(2) {
-    left: -40px;
-  }
-  .hero .info-section .image .svg:nth-child(3) {
-    left: 15px;
-  }
-  .hero .info-section .image .svg:last-child {
-    display: block;
-    right: -75px;
-  }
 }
 
-@media screen and (min-width : 1200px) {
-  .hero .info-section .image .svg {
-    bottom: 5px;
-  }
-  .hero .info-section .image .svg:nth-child(2) {
-    left: -45px;
-  }
-  .hero .info-section .image .svg:nth-child(3) {
-    left: 15px;
-  }
-  .hero .info-section .image .svg:last-child {
-    display: block;
-    right: -20px;
-  }
-}
-@media screen and (min-width : 1400px) {
-  .hero .info-section .image .svg {
-    bottom: -10px;
-  }
-  .hero .info-section .image .svg:last-child {
-    display: block;
-    right: 40px;
-  }
-}
+
 /* start courses section */
 
 .courses {

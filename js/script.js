@@ -1,39 +1,44 @@
-
 // moaz
 // variables for element slider and width & number
-let coursesCarousel = document.querySelector(".courses .courses-wrapper .courses-carousel")
-let coursesCarouselCard = document.querySelectorAll(".courses .courses-wrapper .courses-carousel .box")
-let btnNext = document.querySelector(".courses .courses-wrapper .next-btn")
-let btnPrev = document.querySelector(".courses .courses-wrapper .prev-btn")
+let coursesCarousel = document.querySelector(
+  ".courses .courses-wrapper .courses-carousel"
+);
+let coursesCarouselCard = document.querySelectorAll(
+  ".courses .courses-wrapper .courses-carousel .box"
+);
+let btnNext = document.querySelector(".courses .courses-wrapper .next-btn");
+let btnPrev = document.querySelector(".courses .courses-wrapper .prev-btn");
 let coursesCounter = 0;
 let coursesCard = coursesCarouselCard.length;
 let conterBox;
 let elementWidth;
-
 
 // set some variables for slider
 function setcoursesCard() {
   elementWidth = coursesCarouselCard[0].clientWidth + 15;
   let countenarWidth = coursesCarousel.clientWidth;
   conterBox = countenarWidth / elementWidth;
-  return coursesCard -= conterBox;
+  return (coursesCard -= conterBox);
 }
-setcoursesCard()
+
+if (coursesCarousel) {
+  setcoursesCard();
+  showAndHideButton();
+}
 
 // show and hide next or brev button
 function showAndHideButton() {
   if (coursesCounter <= 0) {
-    btnPrev.style.cssText ="opacity: 0.3; cursor: not-allowed;";
+    btnPrev.style.cssText = "opacity: 0.3; cursor: not-allowed;";
   } else if (coursesCounter > 0) {
-    btnPrev.style.cssText ="opacity: 1; cursor: pointer;";
+    btnPrev.style.cssText = "opacity: 1; cursor: pointer;";
   }
   if (coursesCounter >= coursesCard) {
-    btnNext.style.cssText ="opacity: 0.3; cursor: not-allowed;";
+    btnNext.style.cssText = "opacity: 0.3; cursor: not-allowed;";
   } else if (coursesCounter < coursesCard) {
-    btnNext.style.cssText ="opacity: 1; cursor: pointer;";
+    btnNext.style.cssText = "opacity: 1; cursor: pointer;";
   }
 }
-showAndHideButton()
 
 // Move slider right or left
 function moveSlider(movedBoxes, status) {
@@ -44,36 +49,40 @@ function moveSlider(movedBoxes, status) {
       console.log(movedBoxes);
       coursesCounter--;
     }
-  } else if(movedBoxes) {
+  } else if (movedBoxes) {
     if (status == "next") {
       let numberMove = movedBoxes;
-      for (let i = 1;i <= numberMove; i++) {
+      for (let i = 1; i <= numberMove; i++) {
         if (coursesCounter < coursesCard) {
-          console.log(i)
-          coursesCounter++
+          console.log(i);
+          coursesCounter++;
         }
       }
     } else if (status == "prev") {
       let numberMove = -movedBoxes;
-      for (let i = 1;i <= numberMove; i++) {
+      for (let i = 1; i <= numberMove; i++) {
         if (coursesCounter > 0) {
-          console.log(i)
-          coursesCounter--
+          console.log(i);
+          coursesCounter--;
         }
       }
-    } 
+    }
   }
-  coursesCarousel.style.transform = `translateX(${coursesCounter * (100 / conterBox)}%)`;
+  coursesCarousel.style.transform = `translateX(${
+    coursesCounter * (100 / conterBox)
+  }%)`;
   showAndHideButton();
 }
 
-btnNext.addEventListener("click", () => {
-  moveSlider(undefined,"next")
-})
-
-btnPrev.addEventListener("click", () => {
-  moveSlider(undefined,"prev")
-})
+if (coursesCarousel) {
+  btnNext.addEventListener("click", () => {
+    moveSlider(undefined, "next");
+  });
+  
+  btnPrev.addEventListener("click", () => {
+    moveSlider(undefined, "prev");
+  });
+}
 
 // variables for  slider moved
 let isDragging = false;
@@ -88,20 +97,21 @@ function mouseDown(e, status) {
   isDragging = true;
   if (status == "mobile") {
     startPosition = e.touches[0].clientX;
-  } else if(status == "desk") {
+  } else if (status == "desk") {
     startPosition = e.clientX;
   }
-  coursesCarousel.classList.add('grabbing');
+  coursesCarousel.classList.add("grabbing");
   // console.log("totsh", e)
 }
 
 // mose and touch move
-function mouseMove(e, status)  {
+function mouseMove(e, status) {
   if (isDragging) {
     if (status == "mobile") {
       let currentPosition = e.touches[0].clientX;
-      currentTranslate = prevTranslate - (startPosition - e.changedTouches[0].clientX);
-    } else if(status == "desk") {
+      currentTranslate =
+        prevTranslate - (startPosition - e.changedTouches[0].clientX);
+    } else if (status == "desk") {
       let currentPosition = e.clientX;
       currentTranslate = prevTranslate - (startPosition - currentPosition);
     }
@@ -111,131 +121,148 @@ function mouseMove(e, status)  {
 // mose and touch end
 let mouseUp = () => {
   isDragging = false;
-  coursesCarousel.classList.remove('grabbing');
+  coursesCarousel.classList.remove("grabbing");
   let movedBoxes = Math.round(currentTranslate / elementWidth);
-    if (movedBoxes <= 0) {
-    moveSlider(movedBoxes,"prev")
+  if (movedBoxes <= 0) {
+    moveSlider(movedBoxes, "prev");
   } else if (movedBoxes >= 0) {
-    moveSlider(movedBoxes,"next")
+    moveSlider(movedBoxes, "next");
   }
-}
+};
 
 // mose and touch end
 let mouseLeave = () => {
   isDragging = false;
-  coursesCarousel.classList.remove('grabbing');
+  coursesCarousel.classList.remove("grabbing");
+};
+
+if (coursesCarousel) {
+  // add event
+  coursesCarousel.addEventListener("mousedown", (e) => {
+    mouseDown(e, "desk");
+  });
+  coursesCarousel.addEventListener("touchstart", (e) => {
+    mouseDown(e, "mobile");
+  });
+  
+  coursesCarousel.addEventListener("mousemove", (e) => {
+    mouseMove(e, "desk");
+  });
+  coursesCarousel.addEventListener("touchmove", (e) => {
+    mouseMove(e, "mobile");
+  });
+  
+  coursesCarousel.addEventListener("mouseup", mouseUp);
+  coursesCarousel.addEventListener("mouseleave", mouseLeave);
+  coursesCarousel.addEventListener("touchend", mouseUp);
 }
+// end moaz
 
-// add event
-coursesCarousel.addEventListener("mousedown", e => {
-  mouseDown(e, "desk")
-});
-coursesCarousel.addEventListener("touchstart",  e => {
-  mouseDown(e, "mobile")
-});
-
-coursesCarousel.addEventListener('mousemove', e => {
-  mouseMove(e, "desk")
-});
-coursesCarousel.addEventListener('touchmove', e => {
-  mouseMove(e, "mobile")
-});
-
-coursesCarousel.addEventListener('mouseup', mouseUp);
-coursesCarousel.addEventListener('mouseleave', mouseLeave);
-coursesCarousel.addEventListener('touchend', mouseUp);
-// end moaz 
-
-// Aasem
 window.onload = () => {
-    document.onwheel = customScrollFunction;
+  // Aasem
+  document.onwheel = customScrollFunction;
 
-    function customScrollFunction(event){
-
-let deltaY = event.deltaY;
-let deltaYSign = Math.sign(deltaY);
-
-if(deltaYSign==-1){
-    document.getElementById("scrl1").scrollBy({
-        top: 0,
-        left: -169,
-        behavior: 'auto'
-});
-
-}else{ 
-    document.getElementById("scrl1").scrollBy({
-        top: 0,
-        left: 169,
-        behavior: 'auto'
-    });
-}
-
-}
-}
-// end
+  function customScrollFunction(event) {
+    let deltaY = event.deltaY;
+    let deltaYSign = Math.sign(deltaY);
+    if (document.getElementById("scrl1")) {
+      if (deltaYSign == -1) {
+        document.getElementById("scrl1").scrollBy({
+          top: 0,
+          left: -169,
+          behavior: "auto",
+        });
+      } else {
+        document.getElementById("scrl1").scrollBy({
+          top: 0,
+          left: 169,
+          behavior: "auto",
+        });
+      }
+    }
+  }
+  // end
+};
 // eman
 let navBarButton = document.querySelector("header .oitems .iconbutton");
 let navBar = document.querySelector("header .oitems .oitems-contuinar");
-let lang = document.querySelector("header .oitems .oitems-contuinar .options .lang");
-let langspan = document.querySelectorAll("header .oitems .oitems-contuinar .options .lang a span");
+let lang = document.querySelector(
+  "header .oitems .oitems-contuinar .options .lang"
+);
+let langspan = document.querySelectorAll(
+  "header .oitems .oitems-contuinar .options .lang a span"
+);
 
-navBarButton.addEventListener("click", e => {
-  document.querySelector("header .oitems .iconbutton svg.icon").classList.toggle("fa-bars");
-  document.querySelector("header .oitems .iconbutton svg.icon").classList.toggle("fa-xmark");
-  if (document.querySelector("header .oitems .iconbutton svg").classList.contains("fa-xmark") === true) {
-    navBar.classList.toggle("active");
-  } else {
-    navBar.classList.toggle("active");
-  }
-});
-
-lang.addEventListener("click", e => {
-  e.target.parentElement.parentElement.querySelectorAll("a span").forEach(el => {
-    el.classList.toggle("active");
+if (navBarButton) {
+  navBarButton.addEventListener("click", (e) => {
+    document
+      .querySelector("header .oitems .iconbutton svg.icon")
+      .classList.toggle("fa-bars");
+    document
+      .querySelector("header .oitems .iconbutton svg.icon")
+      .classList.toggle("fa-xmark");
+    if (
+      document
+        .querySelector("header .oitems .iconbutton svg")
+        .classList.contains("fa-xmark") === true
+    ) {
+      navBar.classList.toggle("active");
+    } else {
+      navBar.classList.toggle("active");
+    }
   });
-});
+  
+  lang.addEventListener("click", (e) => {
+    e.target.parentElement.parentElement
+      .querySelectorAll("a span")
+      .forEach((el) => {
+        el.classList.toggle("active");
+      });
+  });
+}
+
 // emd
 // mhalhalaf
-var st = false
-let ShowLoginPas = document.querySelector('#showlogin')
-let ClosLoginPas = document.querySelector('#closlogin')
+var st = false;
+let ShowLoginPas = document.querySelector("#showlogin");
+let ClosLoginPas = document.querySelector("#closlogin");
 
 function login() {
-    if (st) {
-        document.querySelector('#password').setAttribute('type', 'password');
-        ShowLoginPas.classList.add('d-none')
-        ClosLoginPas.classList.remove('d-none')
-        st = false
-    } else {
-        document.querySelector('#password').setAttribute('type', 'text');
-        ClosLoginPas.classList.add('d-none')
-        ShowLoginPas.classList.remove('d-none')
-        st = true
-    }
+  if (st) {
+    document.querySelector("#password").setAttribute("type", "password");
+    ShowLoginPas.classList.add("d-none");
+    ClosLoginPas.classList.remove("d-none");
+    st = false;
+  } else {
+    document.querySelector("#password").setAttribute("type", "text");
+    ClosLoginPas.classList.add("d-none");
+    ShowLoginPas.classList.remove("d-none");
+    st = true;
+  }
 }
 // end
 // simaa
-const slidePoints = document.querySelectorAll('.slide-point');
-const cards = document.querySelectorAll('.card-content');
+const slidePoints = document.querySelectorAll(".slide-point");
+const cards = document.querySelectorAll(".card-content");
 
 cards.forEach((card, index) => {
-  card.addEventListener('click', () => {
+  card.addEventListener("click", () => {
     // remove active class from all cards and slide points
-    cards.forEach(card => {
-      card.classList.remove('active-card');
+    cards.forEach((card) => {
+      card.classList.remove("active-card");
     });
-    slidePoints.forEach(slidePoint => {
-      slidePoint.classList.remove('active-slide');
+    slidePoints.forEach((slidePoint) => {
+      slidePoint.classList.remove("active-slide");
     });
 
     // add active class to clicked card and slide point
-    card.classList.add('active-card');
-    slidePoints[index].classList.add('active-slide');
+    card.classList.add("active-card");
+    slidePoints[index].classList.add("active-slide");
   });
 });
 
 slidePoints.forEach((point, index) => {
-  point.addEventListener('click', () => {
+  point.addEventListener("click", () => {
     // trigger click event on corresponding card
     cards[index].click();
   });
